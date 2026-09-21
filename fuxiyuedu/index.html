@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="福晰阅读器官方首页。提供专业PDF电子书阅读、转换与编辑功能。支持多格式文档查看，拥有极致的阅读体验与高效的处理工具。">
+    <meta name="keywords" content="福晰阅读器,PDF阅读器,电子书阅读,PDF转换,文档查看,福晰PDF">
+    <title>福晰阅读器 - 专业PDF电子书阅读与转换工具</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--accent-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.2);
+            border-color: white;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #e3f2fd;
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Showcase / Screenshot */
+        .showcase {
+            background-color: white;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            background-color: #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .showcase-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .showcase-content p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .check-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .download-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .download-section p {
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .download-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .download-card {
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            min-width: 250px;
+            transition: background-color 0.3s;
+        }
+
+        .download-card:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        .download-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .download-card p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--bg-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 20px;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .showcase-grid { grid-template-columns: 1fr; }
+            .nav-container { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">福晰<span>阅读器</span></a>
+            <nav class="nav-links">
+                <a href="#features" class="active">功能特色</a>
+                <a href="#showcase">产品演示</a>
+                <a href="#download">下载中心</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <a href="#download" class="cta-btn">立即下载</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>极致体验，阅读无界</h1>
+            <p>福晰阅读器是一款轻量级、高效率的专业PDF阅读与处理工具。支持多格式文档查看，提供流畅的翻页体验与强大的转换功能，满足您的办公与学习需求。</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn-primary">免费下载 Windows 版</a>
+                <a href="#features" class="btn-secondary">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心功能亮点</h2>
+                <p>专为文档阅读与处理设计，拒绝臃肿，专注体验</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>极速阅读体验</h3>
+                    <p>采用先进的渲染引擎，文档打开速度快如闪电，翻页流畅无卡顿，即使在阅读大量图片的PDF文档时也能保持丝滑。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>多格式支持</h3>
+                    <p>不仅支持PDF，还完美兼容EPUB、MOBI、TXT等多种电子书格式。一个软件，满足您所有阅读需求。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">✂️</div>
+                    <h3>便捷编辑与转换</h3>
+                    <p>内置强大的文档转换工具，支持将PDF转换为Word、图片等格式。支持页面提取、合并、旋转等基础编辑操作。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>高清缩放与注释</h3>
+                    <p>支持任意倍数无损缩放，文字清晰锐利。提供高亮、下划线、书签和笔记功能，让您的阅读过程更加高效。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>安全隐私保护</h3>
+                    <p>支持给文档添加密码保护，防止重要资料泄露。所有本地处理均在您的设备上进行，数据安全无忧。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>跨平台兼容</h3>
+                    <p>提供Windows、macOS及移动端版本。无论您使用何种设备，都能保持一致的使用体验和文档同步。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase" class="section showcase">
+        <div class="container">
+            <div class="showcase-grid">
+                <div class="showcase-content">
+                    <h2>重新定义阅读方式</h2>
+                    <p>福晰阅读器致力于为用户提供最舒适的阅读环境。我们摒弃了复杂的菜单栏，采用极简的界面设计，让您将注意力集中在内容本身。</p>
+                    <ul class="check-list">
+                        <li>智能记忆上次阅读位置</li>
+                        <li>支持夜间护眼模式切换</li>
+                        <li>自动检测并修复损坏的文档</li>
+                        <li>支持语音朗读功能</li>
+                    </ul>
+                </div>
+                <div class="showcase-image">
+                    <!-- 使用picsum作为占位符，模拟软件界面截图 -->
+                    <img src="https://picsum.photos/seed/fuxi_reader_interface/800/500.jpg" alt="福晰阅读器软件界面示意图">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download-section">
+        <div class="container">
+            <h2>立即开始使用</h2>
+            <p>免费下载福晰阅读器，立即享受高效阅读体验</p>
+            <div class="download-cards">
+                <div class="download-card">
+                    <h4>Windows 版本</h4>
+                    <p>支持 Win 10/11 64位系统</p>
+                    <a href="#" class="download-btn">下载安装包</a>
+                </div>
+                <div class="download-card">
+                    <h4>macOS 版本</h4>
+                    <p>支持 macOS 10.14 及以上</p>
+                    <a href="#" class="download-btn">下载安装包</a>
+                </div>
+                <div class="download-card">
+                    <h4>移动端 App</h4>
+                    <p>iOS & Android 全平台支持</p>
+                    <a href="#" class="download-btn">前往应用商店</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section faq-section">
+        <div class="container faq-container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>关于福晰阅读器的使用疑问解答</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">福晰阅读器是免费的吗？</div>
+                <div class="faq-answer">
+                    <p>是的，福晰阅读器提供基础功能的永久免费版。高级转换和去水印功能需要订阅会员服务，具体请查看官网定价页面。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">支持哪些语言的文档？</div>
+                <div class="faq-answer">
+                    <p>福晰阅读器支持主流语言的文档显示，包括中文、英文、日文、韩文等。对于乱码问题，建议确保您的系统安装了对应的字体包。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何将PDF转换为Word？</div>
+                <div class="faq-answer">
+                    <p>在软件中选择“文件” > “转换” > “导出为Word”。请注意，对于扫描版PDF（图片型），转换效果可能需要手动调整，纯文字版转换效果最佳。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">软件会收集我的阅读数据吗？</div>
+                <div class="faq-answer">
+                    <p>福晰阅读器承诺不收集用户的个人隐私数据和阅读习惯记录。所有数据仅在本地设备处理，绝不会上传至云端服务器。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>福晰阅读器</h4>
+                <p>致力于提供最优质的文档阅读与处理解决方案。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="#">Windows 版</a></li>
+                    <li><a href="#">macOS 版</a></li>
+                    <li><a href="#">移动版 App</a></li>
+                    <li><a href="#">在线转换工具</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">更新日志</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 福晰阅读器. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 折叠交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
