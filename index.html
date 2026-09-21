@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cs1.6机器人补丁下载 - 经典反恐精英单机对战工具</title>
+    <meta name="description" content="提供cs1.6机器人补丁下载，包含Bot 2.0及Dust2等地图的AI对战插件，支持单人练枪、战术演练及地图编辑器功能，解决原版无AI问题。">
+    <meta name="keywords" content="cs1.6机器人补丁下载,cs1.6 bot,cs1.6单机版,cs1.6练枪,反恐精英1.6机器人">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #1976d2;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #ffca28;
+            --border-radius: 8px;
+            --spacing: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-download-nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn-download-nav:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .download-box {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            display: inline-flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .file-name {
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .file-size {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn-main {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, background-color 0.2s;
+            width: 100%;
+        }
+
+        .btn-main:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .feature-item::before {
+            content: '✔';
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-bottom: 1px dashed var(--text-muted);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Grid Layout */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            border-color: #444;
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #333;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .btn-sm {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Guide Section */
+        .guide-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .guide-content h3 {
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+        }
+
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .guide-steps {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        .guide-steps ol {
+            padding-left: 20px;
+        }
+
+        .guide-steps li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .guide-steps li::marker {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            background-color: #252525;
+        }
+
+        .faq-question:hover {
+            background-color: #2a2a2a;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-muted);
+            background-color: #1e1e1e;
+        }
+
+        .faq-answer.active {
+            padding: 15px 20px;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span>CS1.6 机器人网</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">地图专区</a></li>
+                    <li><a href="#">机器人插件</a></li>
+                    <li><a href="#">使用教程</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="btn-download-nav">立即下载</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>CS1.6机器人补丁下载</h1>
+            <p>为经典反恐精英1.6添加智能AI，实现单人单机对战。支持自定义难度、枪械选择及地图编辑，打造您的专属训练场。</p>
+            
+            <div class="download-box" id="download">
+                <div class="file-info">
+                    <span class="file-name">CS1.6 Bot 2.0 完整版 (含地图)</span>
+                    <span class="file-size">245 MB</span>
+                </div>
+                <button class="btn-main" onclick="alert('感谢您的下载请求。请在页面下方查看详细安装指南。')">开始下载补丁</button>
+                <div class="features">
+                    <span class="feature-item">支持单机模式</span>
+                    <span class="feature-item">智能瞄准系统</span>
+                    <span class="feature-item">Dust2等经典地图</span>
+                    <span class="feature-item">无需安装原版游戏</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Featured Categories -->
+        <section>
+            <div class="section-title">
+                <h2>热门补丁资源</h2>
+                <a href="#">查看更多 &raquo;</a>
+            </div>
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/cstrike1/400/250" alt="CS1.6 Dust2地图">
+                        <span class="card-tag">经典地图</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Dust2 完整版地图包</h3>
+                        <p class="card-desc">包含Dust2、Inferno、Nuke等经典地图，完美适配各类机器人插件，还原经典爆破战场。</p>
+                        <div class="card-footer">
+                            <span>2023-10-15</span>
+                            <a href="#" class="btn-sm">下载地图</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/bot2/400/250" alt="Bot 2.0 插件">
+                        <span class="card-tag">最新插件</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">CS 1.6 Bot 2.0 智能插件</h3>
+                        <p class="card-desc">引入高级寻路算法，机器人具备战术意识，支持团队配合与战术包抄，练枪必备。</p>
+                        <div class="card-footer">
+                            <span>2023-10-10</span>
+                            <a href="#" class="btn-sm">下载插件</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/weapon/400/250" alt="枪械修改器">
+                        <span class="card-tag">辅助工具</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">CS1.6 全枪械修改器</h3>
+                        <p class="card-desc">可修改机器人枪械伤害、射速及后坐力，自定义您的游戏难度，体验爽快射击感。</p>
+                        <div class="card-footer">
+                            <span>2023-09-28</span>
+                            <a href="#" class="btn-sm">下载工具</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Guide & Info -->
+        <div class="guide-container" style="margin-top: 50px;">
+            <section class="guide-content">
+                <h2>关于CS1.6机器人补丁</h2>
+                <p>CS 1.6 机器人补丁是为原版游戏添加人工智能（AI）的工具。由于原版CS 1.6主要以局域网联机为主，单人游玩时缺乏互动对手，补丁通过替换或注入游戏文件，让电脑控制的角色加入战斗。</p>
+                
+                <h3>主要功能特点</h3>
+                <p><strong>1. 智能寻路与战斗：</strong> 不同于早期的简单机器人，现代补丁（如Bot 2.0）具备自主移动、翻越障碍、使用闪光弹和烟雾弹的能力。</p>
+                <p><strong>2. 战术配合：</strong> 机器人会根据地图结构进行战术包抄，在Dust2的A点或B点进行防守或进攻，模拟真实的团队竞技。</p>
+                <p><strong>3. 适应性强：</strong> 支持几乎所有CS 1.6的修改版地图，且对电脑配置要求极低，老电脑也能流畅运行。</p>
+            </section>
+
+            <aside>
+                <div class="guide-steps">
+                    <h3>快速安装指南</h3>
+                    <ol>
+                        <li>下载对应版本的机器人补丁压缩包。</li>
+                        <li>将压缩包内的文件解压至您的CS 1.6游戏目录根目录。</li>
+                        <li>运行游戏，在控制台输入 <code>mp_autoteambalance 0</code> 开启平衡模式。</li>
+                        <li>输入 <code>bot_add</code> 命令即可召唤机器人。</li>
+                        <li>在控制台输入 <code>bot_kick</code> 可移除所有机器人。</li>
+                    </ol>
+                </div>
+
+                <div style="margin-top: 20px; background: #252525; padding: 15px; border-radius: 8px;">
+                    <h4 style="color: #fff; margin-bottom: 10px;">常见问题 (FAQ)</h4>
+                    <details style="margin-bottom: 10px; cursor: pointer;">
+                        <summary style="color: var(--text-muted); font-size: 0.9rem;">补丁会覆盖原版文件吗？</summary>
+                        <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">通常不会，建议将补丁文件放入 <code>cstrike</code> 或 <code>cstrike_pak</code> 文件夹，或使用专门的插件加载器。</p>
+                    </details>
+                    <details style="margin-bottom: 10px; cursor: pointer;">
+                        <summary style="color: var(--text-muted); font-size: 0.9rem;">如何设置机器人难度？</summary>
+                        <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">在控制台输入 <code>bot_difficulty 1</code> (简单) 到 <code>bot_difficulty 4</code> (困难) 进行调整。</p>
+                    </details>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ Section -->
+        <section style="margin-top: 50px;">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">CS1.6机器人补丁下载后如何安装？ <span>+</span></div>
+                <div class="faq-answer">
+                    <p>下载完成后，请将压缩包内的所有文件解压到您的CS 1.6游戏安装目录中。如果提示覆盖，请选择“是”。对于某些特定的插件包（如插件文件），可能需要将文件放入 <code>cstrike/addons</code> 文件夹，并确保 <code>cstrike/pewpew.cfg</code> 文件存在。安装完毕后，进入游戏按 <code>`</code> (波浪号) 键打开控制台，输入 <code>exec pewpew.cfg</code> 即可生效。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">机器人卡在地图里不动怎么办？ <span>+</span></div>
+                <div class="faq-answer">
+                    <p>这通常是由于机器人路径图（nav file）损坏或地图与机器人版本不兼容造成的。请尝试重新下载该地图的机器人专用版本，或者检查控制台是否有红色报错信息。确保在控制台运行了 <code>sv_restart 1</code> 命令重启服务器。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">使用补丁会影响游戏的正版性吗？ <span>+</span></div>
+                <div class="faq-answer">
+                    <p>使用第三方机器人补丁仅用于个人练习和学习，不涉及任何破解原版游戏的行为，不会影响您在Steam平台上的账号状态。请注意从正规渠道下载，避免捆绑病毒。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>CS1.6 机器人网</h4>
+                    <p style="color: #666; font-size: 0.9rem;">
+                        专注于CS 1.6单人模式优化，提供最稳定、最智能的机器人插件与地图资源。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>资源分类</h4>
+                    <ul>
+                        <li><a href="#">Bot 1.6 插件</a></li>
+                        <li><a href="#">Dust2 地图包</a></li>
+                        <li><a href="#">武器修改器</a></li>
+                        <li><a href="#">音效包下载</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">安装教程</a></li>
+                        <li><a href="#">控制台命令</a></li>
+                        <li><a href="#">常见报错</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CS1.6机器人补丁下载网. All Rights Reserved. 本站仅供技术交流与学习使用。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span');
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                icon.textContent = '+';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close other open FAQs
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question span').forEach(item => {
+                    item.textContent = '+';
+                    item.style.transform = 'rotate(0deg)';
+                });
+
+                answer.classList.add('active');
+                icon.textContent = '-';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+  </html>
