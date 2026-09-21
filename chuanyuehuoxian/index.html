@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="道聚城是腾讯游戏《穿越火线》官方授权的虚拟物品交易平台，提供CF点充值、游戏道具购买、礼包兑换及最新活动资讯。安全便捷，正版保障。">
+    <meta name="keywords" content="穿越火线道聚城,CF点充值,CF游戏商城,穿越火线道具,CF礼包,道聚城官网">
+    <title>穿越火线道聚城-CF点充值与游戏道具交易官方平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --cf-blue: #2b5be8;
+            --cf-dark: #0f172a;
+            --cf-orange: #ff6b00;
+            --cf-gray: #f1f5f9;
+            --cf-text: #334155;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--cf-gray);
+            color: var(--cf-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--cf-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span { color: var(--cf-blue); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--cf-text);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--cf-blue);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-login {
+            padding: 8px 20px;
+            border: 1px solid var(--cf-blue);
+            color: var(--cf-blue);
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-login:hover { background: var(--cf-blue); color: #fff; }
+
+        .btn-primary {
+            background: var(--cf-orange);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover { background: #e55f00; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #fff;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(43, 91, 232, 0.2) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 100%;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            max-width: 1200px;
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .link-grid {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .link-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .link-item:hover { background: var(--cf-gray); }
+
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            background: #f8fafc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--cf-blue);
+        }
+
+        .link-text { font-size: 14px; font-weight: 500; }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            color: var(--cf-dark);
+            margin-bottom: 5px;
+        }
+
+        .section-title p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .view-all {
+            color: var(--cf-blue);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+            overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--cf-orange);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--cf-dark);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-price {
+            font-size: 18px;
+            color: #ef4444;
+            font-weight: 800;
+            margin-top: auto;
+            margin-bottom: 10px;
+        }
+
+        .card-price small {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 10px;
+            background: var(--cf-blue);
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .btn-buy:hover { background: #1e4bd6; }
+
+        /* Features Section */
+        .features {
+            background: #fff;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--cf-dark);
+        }
+
+        .feature-item p {
+            color: #64748b;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--cf-dark);
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h5 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: #fff; }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-4 { grid-template-columns: repeat(3, 1fr); }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .link-grid { grid-template-columns: repeat(4, 1fr); }
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-content p { margin: 0 auto 30px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .header-actions .btn-login { display: none; }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: 1fr; }
+            .link-grid { grid-template-columns: repeat(3, 1fr); }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>穿越火线道聚城</span> CF道聚城
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">CF点充值</a>
+                <a href="#">武器商城</a>
+                <a href="#">角色道具</a>
+                <a href="#">活动专区</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-login">登录</a>
+                <a href="#" class="btn-primary">立即充值</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <h1>CF玩家首选的<br>游戏道具交易平台</h1>
+                    <p>腾讯游戏《穿越火线》官方授权，提供安全、便捷的CF点充值服务与海量游戏道具购买。正版保障，畅玩无忧。</p>
+                    <div style="display: flex; gap: 15px; justify-content: flex-start;">
+                        <a href="#" class="btn-primary">立即选购</a>
+                        <a href="#" class="btn-login" style="border-color: #fff; color: #fff;">查看充值帮助</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/cfhero/500/350" alt="穿越火线道聚城首页展示">
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <div class="link-grid">
+                <div class="link-item">
+                    <div class="link-icon">💰</div>
+                    <span class="link-text">CF点充值</span>
+                </div>
+                <div class="link-item">
+                    <div class="link-icon">🔫</div>
+                    <span class="link-text">M4A1系列</span>
+                </div>
+                <div class="link-item">
+                    <div class="link-icon">🎯</div>
+                    <span class="link-text">AK47系列</span>
+                </div>
+                <div class="link-item">
+                    <div class="link-icon">🛡️</div>
+                    <span class="link-text">防弹衣头盔</span>
+                </div>
+                <div class="link-item">
+                    <div class="link-icon">🎁</div>
+                    <span class="link-text">每日礼包</span>
+                </div>
+                <div class="link-item">
+                    <div class="link-icon">🎫</div>
+                    <span class="link-text">活动兑换</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Items -->
+        <section class="container">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>热门推荐</h2>
+                    <p>精选CF玩家必备武器与道具</p>
+                </div>
+                <a href="#" class="view-all">查看全部 ></a>
+            </div>
+            <div class="grid-4">
+                <!-- Item 1 -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <span class="card-badge">热卖</span>
+                        <img src="https://picsum.photos/seed/gun1/300/225" alt="火麒麟">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">火麒麟 - 7天体验卡</h3>
+                        <div class="card-price">¥0.00 <small>限时免费</small></div>
+                        <a href="#" class="btn-buy">领取</a>
+                    </div>
+                </article>
+                <!-- Item 2 -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <span class="card-badge">新品</span>
+                        <img src="https://picsum.photos/seed/gun2/300/225" alt="雷神">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">雷神 - 7天体验卡</h3>
+                        <div class="card-price">¥0.00 <small>限时免费</small></div>
+                        <a href="#" class="btn-buy">领取</a>
+                    </div>
+                </article>
+                <!-- Item 3 -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/gun3/300/225" alt="黑骑士">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">黑骑士 - 30天永久</h3>
+                        <div class="card-price">¥980.00 <small>¥1200</small></div>
+                        <a href="#" class="btn-buy">购买</a>
+                    </div>
+                </article>
+                <!-- Item 4 -->
+                <article class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/gun4/300/225" alt="无影">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">无影 - 30天永久</h3>
+                        <div class="card-price">¥680.00 <small>¥800</small></div>
+                        <a href="#" class="btn-buy">购买</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container" style="margin-top: 60px;">
+            <div class="section-header">
+                <div class="section-title">
+                    <h2>分类浏览</h2>
+                    <p>按类型快速找到你需要的道具</p>
+                </div>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/cat1/400/250" alt="步枪">
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title" style="font-size: 18px;">步枪系列</h3>
+                        <a href="#" style="color: var(--cf-blue); font-weight: 600; margin-top: 10px; display: inline-block;">进入专区 ></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/cat2/400/250" alt="手枪">
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title" style="font-size: 18px;">手枪系列</h3>
+                        <a href="#" style="color: var(--cf-blue); font-weight: 600; margin-top: 10px; display: inline-block;">进入专区 ></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img src="https://picsum.photos/seed/cat3/400/250" alt="生化武器">
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <h3 class="card-title" style="font-size: 18px;">生化武器</h3>
+                        <a href="#" style="color: var(--cf-blue); font-weight: 600; margin-top: 10px; display: inline-block;">进入专区 ></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>安全交易</h3>
+                    <p>腾讯官方平台，资金安全有保障，杜绝盗号风险。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>极速到账</h3>
+                    <p>充值CF点实时到账，购买道具秒级发放，无需等待。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>正品保障</h3>
+                    <p>所有商品均为腾讯官方授权，杜绝假货，放心购买。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4>穿越火线道聚城</h4>
+                <p>腾讯游戏《穿越火线》官方授权的虚拟物品交易平台，致力于为CF玩家提供安全、便捷、高品质的游戏道具交易服务。</p>
+            </div>
+            <div class="footer-col">
+                <h5>关于我们</h5>
+                <ul>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>帮助中心</h5>
+                <ul>
+                    <li><a href="#">充值帮助</a></li>
+                    <li><a href="#">物流查询</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>关注我们</h5>
+                <ul>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">官方论坛</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 穿越火线道聚城 版权所有 | 腾讯游戏 版权所有</p>
+        </div>
+    </footer>
+
+</body>
+                          </html>
