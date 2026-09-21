@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="妈妈的朋友 - 深度解析家庭社交关系中的边界感与社交礼仪，提供实用的沟通技巧与情感建议，帮助您在复杂的家庭与邻里关系中保持得体与舒适。">
+    <meta name="keywords" content="妈妈的朋友, 家庭社交, 边界感, 社交礼仪, 人际沟通, 邻里关系">
+    <title>妈妈的朋友 - 家庭社交边界与礼仪指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            margin-top: -32px;
+            margin-bottom: 48px;
+        }
+
+        /* Article Section */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .article-content p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .article-content ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--accent-color);
+            padding: 16px;
+            margin: 24px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .sidebar-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .sidebar-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .tag {
+            background-color: #eee;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 48px 0 24px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>妈妈的朋友</span>指南
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">关系指南</a></li>
+                    <li><a href="#">社交礼仪</a></li>
+                    <li><a href="#">心理分析</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>构建得体的家庭社交圈</h1>
+            <p>在家庭聚会、邻里往来及亲友互动中，如何保持恰当的距离与礼貌，让每一次相遇都充满舒适与尊重。</p>
+            <a href="#guidance" class="cta-button">阅读实用指南</a>
+        </div>
+    </section>
+
+    <main class="container main-grid">
+        <article>
+            <h2 class="section-title">社交边界与得体礼仪</h2>
+            
+            <div class="article-card">
+                <div class="article-content">
+                    <p>在日常生活中，遇到父母的朋友、邻居或亲戚时，保持良好的社交礼仪是维系和谐关系的关键。这不仅仅是礼貌，更是对长辈和长辈朋友的尊重。</p>
+                    
+                    <h3>基本的问候与称呼</h3>
+                    <p>见到长辈或长辈的朋友时，主动问好是最基本的礼仪。使用尊称（如“阿姨”、“叔叔”）并加上姓氏（如“李阿姨”）会显得更加亲切和尊重。</p>
+                    <ul>
+                        <li>见到时主动微笑点头或挥手。</li>
+                        <li>说话时语调平和，保持眼神交流。</li>
+                        <li>如果有长辈在场，应优先向长辈问好。</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <strong>小贴士：</strong> 如果对长辈朋友的称呼不确定，直接询问父母是最稳妥的方式。
+                    </div>
+
+                    <h3>参与话题的艺术</h3>
+                    <p>在家庭聚会或社交场合中，话题的选择尤为重要。避免谈论过于敏感的政治话题或私人财务状况。多关注健康、美食、旅游或共同的兴趣爱好。</p>
+                    <ul>
+                        <li>倾听比表达更重要，适时点头表示赞同。</li>
+                        <li>如果长辈提起旧事，耐心倾听即可。</li>
+                        <li>避免在长辈面前过多抱怨或展示负面情绪。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-content">
+                    <h3>得体的着装与行为</h3>
+                    <p>无论场合是正式还是休闲，整洁的仪表都能给人留下良好的第一印象。行为举止大方得体，避免过于随意的动作。</p>
+                    <ul>
+                        <li>穿着整洁大方，避免过于暴露或奇装异服。</li>
+                        <li>在长辈家中做客时，注意坐姿和站姿，不随意乱翻东西。</li>
+                        <li>离开时主动道别，并感谢主人的款待。</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <aside>
+            <div class="sidebar-card">
+                <h3>热门话题</h3>
+                <ul class="sidebar-list">
+                    <li><a href="#">如何拒绝长辈的过度关心？ <span class="tag">沟通</span></a></li>
+                    <li><a href="#">家庭聚会中的餐桌礼仪 <span class="tag">礼仪</span></a></li>
+                    <li><a href="#">邻里之间如何保持友善距离 <span class="tag">邻里</span></a></li>
+                    <li><a href="#">称呼长辈朋友的禁忌 <span class="tag">禁忌</span></a></li>
+                    <li><a href="#">父母社交圈子的融入技巧 <span class="tag">融入</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>阅读更多</h3>
+                <ul class="sidebar-list">
+                    <li><a href="#">社交心理学基础</a></li>
+                    <li><a href="#">中国式人情世故</a></li>
+                    <li><a href="#">提升个人修养</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <section class="container faq-section" id="guidance">
+        <h2 class="section-title">常见问题解答 (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">如果父母的朋友问我不喜欢的问题，应该怎么回答？</div>
+            <div class="faq-answer">
+                遇到不希望回答的问题，可以采用“模糊回答法”或“转移话题法”。例如回答：“这个问题比较深奥，我还在学习中。”或者微笑着反问：“您最近在忙什么呢？”以示礼貌地回避。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">在长辈朋友面前玩手机是不是很不礼貌？</div>
+            <div class="faq-answer">
+                是的，在长辈面前长时间低头看手机会显得缺乏礼貌和不尊重。建议在长辈朋友在场时，尽量将手机调至静音并放在桌面上，将注意力集中在对话上。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">如果长辈朋友送礼物，应该怎么得体地收下？</div>
+            <div class="faq-answer">
+                应该双手接过，并当面表示感谢。如果不喜欢或不需要，可以委婉地表示“心意领了，东西就不收了”，或者事后通过父母转达感谢之情。
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p>致力于提供实用的家庭社交指南，帮助每个人在复杂的人际关系中找到平衡与舒适。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">社交礼仪</a></li>
+                        <li><a href="#">沟通技巧</a></li>
+                        <li><a href="#">心理健康</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>合作建议：contact@example.com</li>
+                        <li>客服支持：support@example.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 妈妈的朋友指南. All Rights Reserved. 本站内容仅供知识科普与参考，不构成任何行为建议。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
