@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性经-科学健康两性关系与知识科普平台</title>
+    <meta name="description" content="性经为您提供权威、科学的性健康知识、两性关系指导及性教育科普内容，致力于消除误解，促进健康和谐的亲密关系。">
+    <meta name="keywords" content="性经,性教育,两性关系,性健康,性知识,亲密关系,科普">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #50E3C2;
+            --accent-color: #FF6B6B;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-cta {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background-color: #357ABD;
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E0F7FA 0%, #E8F5E9 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Categories */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(74, 144, 226, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .category-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Featured Articles */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(80, 227, 194, 0.1);
+            color: var(--secondary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .article-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .article-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Safety & FAQ */
+        .safety-section {
+            background-color: #FFF3F3;
+        }
+
+        .safety-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .safety-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .safety-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .safety-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                性经<span>科普</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">两性关系</a>
+                <a href="#">生理健康</a>
+                <a href="#">性教育</a>
+                <a href="#">心理调适</a>
+                <a href="#">常见问题</a>
+            </nav>
+            <a href="#" class="nav-cta">开始探索</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>科学了解两性关系，拥抱健康生活</h1>
+                <p>我们致力于提供客观、科学、无偏见的性健康知识与两性沟通指南，帮助您建立自信、和谐的亲密关系。</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">阅读科普文章</a>
+                    <a href="#" class="btn btn-outline">观看科普视频</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>科普文章</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100K+</h3>
+                    <p>月度阅读量</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>专家顾问</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>专业咨询</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>探索知识领域</h2>
+                    <p>根据您的需求，选择感兴趣的板块深入了解</p>
+                </div>
+                <div class="category-grid">
+                    <article class="category-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
+                        <h3>生理健康</h3>
+                        <p>了解身体构造、生理周期、性传播疾病预防及生殖健康常识。</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>两性心理</h3>
+                        <p>探讨恋爱心理、沟通技巧、情感依恋模式及亲密关系维护。</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3>性教育科普</h3>
+                        <p>打破禁忌，提供适龄的性知识教育，培养正确的价值观与性观念。</p>
+                    </article>
+                    <article class="category-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
+                        <h3>常见问题</h3>
+                        <p>解答关于性功能障碍、性偏好、避孕及生育等方面的常见疑虑。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles -->
+        <section class="section" style="background-color: #fff;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选深度阅读</h2>
+                    <p>专家撰写的深度科普文章，助您理性认知</p>
+                </div>
+                <div class="featured-grid">
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/sex1/400/250" alt="性健康科普" class="article-image">
+                        <div class="article-content">
+                            <span class="tag">生理健康</span>
+                            <h3>打破沉默：了解性传播疾病的传播途径与预防措施</h3>
+                            <p>性传播疾病不仅影响身体健康，还可能对心理造成负担。本文详细介绍了常见性病的传播方式及科学的预防手段。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/sex2/400/250" alt="两性沟通" class="article-image">
+                        <div class="article-content">
+                            <span class="tag">两性关系</span>
+                            <h3>如何进行有效的性爱沟通？建立互信的亲密语言</h3>
+                            <p>良好的性爱体验建立在开放的沟通之上。学习如何表达需求与界限，是提升亲密关系质量的关键。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/sex3/400/250" alt="心理调适" class="article-image">
+                        <div class="article-content">
+                            <span class="tag">心理调适</span>
+                            <h3>性功能障碍的心理因素：焦虑与表现压力的化解</h3>
+                            <p>很多时候，生理问题源于心理压力。探讨表现焦虑的成因，并提供心理调节的实用建议。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety & FAQ Section -->
+        <section class="section safety-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>安全提示与常见问答</h2>
+                </div>
+                <div class="safety-content">
+                    <div class="safety-text">
+                        <h3>温馨提示</h3>
+                        <p style="margin-bottom: 20px; color: var(--text-dark);">我们尊重每一位读者的隐私，所有咨询内容均严格保密。如果您遇到紧急健康问题或心理困扰，请务必及时寻求专业医生或心理咨询师的帮助。</p>
+                        <ul class="safety-list">
+                            <li>性行为应建立在双方知情同意的基础上。</li>
+                            <li>正确使用安全套是预防性病和意外怀孕最有效的方法。</li>
+                            <li>定期体检是维护长期性健康的重要手段。</li>
+                            <li>任何性相关的困扰都不应被羞耻感所掩盖。</li>
+                        </ul>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">什么是知情同意？</div>
+                            <div class="faq-answer">知情同意是指一方在清醒、自愿、且不受胁迫的情况下，明确表示同意进行某种行为。双方都需要在过程中持续确认彼此的意愿。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">如何判断自己是否有性健康问题？</div>
+                            <div class="faq-answer">如果您在性生活中感到持续的疼痛、功能障碍或心理不适，或者有异常的身体症状，建议咨询专业医生。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">青春期如何正确看待性？</div>
+                            <div class="faq-answer">青春期是身心发育的关键期，了解科学知识有助于建立健康的自我认知和人际关系，避免因无知而产生错误行为。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">如何选择避孕方式？</div>
+                            <div class="faq-answer">选择避孕方式需考虑健康、年龄、生育计划等因素。最常见且有效的方式包括短效避孕药、避孕套和宫内节育器等，建议咨询医生。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>性经</h3>
+                    <p>致力于打造一个开放、科学、尊重的性知识科普平台。我们相信，了解性是成熟与健康的标志。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">专家团队</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>知识分类</h4>
+                    <ul>
+                        <li><a href="#">生理知识</a></li>
+                        <li><a href="#">心理调适</a></li>
+                        <li><a href="#">两性关系</a></li>
+                        <li><a href="#">青少年教育</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>合作咨询</li>
+                        <li>投稿指南</li>
+                        <li>健康热线: 400-123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 性经科普平台 版权所有 | 仅供科普学习使用，不提供医疗诊断服务</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  </html>
